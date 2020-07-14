@@ -1,0 +1,4 @@
+node_modules
+
+# because we have yarn.lock
+package-lock.json
