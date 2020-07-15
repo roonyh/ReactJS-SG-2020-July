@@ -14,7 +14,11 @@ const Wrapper = styled(Box)`
   }
 `;
 
-const LanguagePicker = ({ languages, selectedLanguage, onSelectLanguage }) => {
+const LanguagePicker = ({
+  languages,
+  selectedLanguage,
+  onSelectLanguage,
+}) => {
   return (
     <Wrapper>
       {languages.map((language, index, { length }) => (
@@ -23,10 +27,18 @@ const LanguagePicker = ({ languages, selectedLanguage, onSelectLanguage }) => {
             {language === selectedLanguage ? (
               language
             ) : (
-              <Link onClick={() => {console.log("SS"); onSelectLanguage(language)}}>{language}</Link>
+              <Link
+                onClick={(e) => {
+                  onSelectLanguage(e, language);
+                }}
+              >
+                {language}
+              </Link>
             )}
           </Typography>
-          {index < length - 1 && <Divider orientation="vertical" flexItem/>}
+          {index < length - 1 && (
+            <Divider orientation="vertical" flexItem />
+          )}
         </>
       ))}
     </Wrapper>
